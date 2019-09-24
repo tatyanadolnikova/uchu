@@ -14,13 +14,43 @@
     <string name="menu_share">Настройки</string>
     <string name="menu_faq">FAQ</string>
     <string name="menu_send">Выйти</string>
-    <string name="title_activity_login">Sign in</string>
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
+    <string name="title_activity_login">Войти</string>
+    <string name="prompt_email">email</string>
+    <string name="prompt_password">password</string>
+    <string name="action_sign_up">Зарегистрироваться</string>
+    <string name="action_sign_in_short">Войти</string>
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="invalid_password">Введите больше 5 символов</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="title_registration_activity">Регистрация</string>
+
+    <string name="registration_name">Имя</string>
+    <string name="registration_surname">Фамилия</string>
+    <string name="registration_email">Электронный адрес</string>
+    <string name="registration_gender">Пол</string>
+    <string name="registration_male">м</string>
+    <string name="registration_female">ж</string>
+    <string name="registration_birthday">Дата рождения</string>
+    <string name="registration_skills">Умею</string>
+    <string name="registration_save">Продолжить</string>
+
+    <string name="skill_1">Английский</string>
+    <string name="skill_2">Немецкий</string>
+    <string name="skill_3">Французский</string>
+    <string name="skill_4">Испанский</string>
+    <string name="skill_5">Итальянский</string>
+    <string name="skill_6">Китайский</string>
+    <string name="skill_7">Японский</string>
+    <string name="skill_8">java</string>
+    <string name="skill_9">php</string>
+    <string name="skill_10">C</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="title_activity_commutication">CommuticationActivity</string>
+    <string name="title_activity_search_users">SearchUsersActivity</string>
+    <string name="title_activity_saved_users">SavedUsersActivity</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_faq">FAQActivity</string>
+
+
 </resources>

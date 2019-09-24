@@ -3,11 +3,13 @@ package com.example.android.uchu;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.android.uchu.ui.ui.login.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -22,7 +24,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     private AppBarConfiguration mAppBarConfiguration;
 
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -65,5 +68,35 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.drawer_nav_home:
+                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.nav_home);
+                break;
+            case R.id.drawer_nav_gallery:
+                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.nav_gallery);
+                break;
+            case R.id.drawer_nav_slideshow:
+                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.nav_slideshow);
+                break;
+            case R.id.drawer_nav_tools:
+                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.nav_tools);
+                break;
+            case R.id.drawer_nav_share:
+                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.nav_share);
+                break;
+            case R.id.drawer_nav_faq:
+                Navigation.findNavController(this, R.id.nav_host_fragment).navigate(R.id.nav_faq);
+                return true;
+            case R.id.drawer_nav_send:
+                //Всплывающее окно: "Выйти?"
+                return true;
+            default :
+                return super.onOptionsItemSelected(item);
+        }
+        return true;
     }
 }
