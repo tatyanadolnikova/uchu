@@ -45,12 +45,9 @@
     <string name="skill_8">java</string>
     <string name="skill_9">php</string>
     <string name="skill_10">C</string>
-    <string name="title_activity_profile">ProfileActivity</string>
-    <string name="title_activity_commutication">CommuticationActivity</string>
-    <string name="title_activity_search_users">SearchUsersActivity</string>
-    <string name="title_activity_saved_users">SavedUsersActivity</string>
-    <string name="title_activity_settings">SettingsActivity</string>
-    <string name="title_activity_faq">FAQActivity</string>
-
-
+    <string name="title_activity_main_activity">main_activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>

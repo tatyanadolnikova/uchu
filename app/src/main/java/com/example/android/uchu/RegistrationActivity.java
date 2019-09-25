@@ -46,7 +46,7 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 User user = createUser();
                 Toast.makeText(RegistrationActivity.this, String.format("%s %s знает %s!", user.getName(), user.getSurname(), user.getSkill()), Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+                Intent intent = new Intent(RegistrationActivity.this, Main2Activity.class);
                 startActivity(intent);
             }
         });
