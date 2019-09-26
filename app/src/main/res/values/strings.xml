@@ -28,10 +28,12 @@
     <string name="registration_name">Имя</string>
     <string name="registration_surname">Фамилия</string>
     <string name="registration_email">Электронный адрес</string>
+    <string name="registration_password">Пароль</string>
     <string name="registration_gender">Пол</string>
     <string name="registration_male">м</string>
     <string name="registration_female">ж</string>
     <string name="registration_birthday">Дата рождения</string>
+    <string name="registration_city">Город</string>
     <string name="registration_skills">Умею</string>
     <string name="registration_save">Продолжить</string>
 

@@ -1,67 +1,55 @@
 package com.example.android.uchu;
 
 public class User {
+    private String email;
+    private String password;
     private String name;
     private String surname;
-    private String email;
-    private Boolean gender; // true: ж; false: м
+    private int gender; // true: ж; false: м
     private String birthday;
+    private String city;
     private String skill;
 
-    public User(String name, String surname, String email, Boolean gender, String birthday, String skill) {
+    public User(String email, String password, String name, String surname, int gender, String birthday, String city, String skill) {
+        this.email = email;
+        this.password = password;
         this.name = name;
         this.surname = surname;
-        this.email = email;
         this.gender = gender;
         this.birthday = birthday;
+        this.city = city;
         this.skill = skill;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getPassword() {
+        return password;
     }
 
-    public Boolean getGender() {
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public int getGender() {
         return gender;
-    }
-
-    public void setGender(Boolean gender) {
-        this.gender = gender;
     }
 
     public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
+    public String getCity() {
+        return city;
     }
 
     public String getSkill() {
         return skill;
-    }
-
-    public void setSkill(String skill) {
-        this.skill = skill;
     }
 }

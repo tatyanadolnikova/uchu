@@ -38,10 +38,11 @@ public class RegistrationActivity extends AppCompatActivity {
     private EditText userName;
     private EditText userSurname;
     private EditText userEmail;
+    private EditText userPassword;
     private RadioGroup userGender;
-    private RadioButton userMale;
     private RadioButton userFemale;
     private Button userBirthday;
+    private EditText userCity;
     private Spinner userSkill;
 
     DbHelper dbHelper;
@@ -50,8 +51,10 @@ public class RegistrationActivity extends AppCompatActivity {
     private String oName;
     private String oSurname;
     private String oEmail;
-    private Boolean oGender; // true: ж; false: м
+    private String oPassword;
+    private int oGender; // 1: ж; 0: м
     private String oBirthday;
+    private String oCity;
     private String oSkill;
     private boolean bdIsChosen = false;
 
@@ -77,9 +80,11 @@ public class RegistrationActivity extends AppCompatActivity {
         userName = findViewById(R.id.registration_name);
         userSurname = findViewById(R.id.registration_surname);
         userEmail = findViewById(R.id.registration_email);
+        userPassword = findViewById(R.id.registration_password);
         userGender = findViewById(R.id.registration_gender);
         userFemale = findViewById(R.id.registration_female);
         userBirthday = findViewById(R.id.registration_birthday);
+        userCity = findViewById(R.id.registration_city);
         userSkill = findViewById(R.id.registration_spinner);
 
         setSupportActionBar(toolbar);
@@ -90,7 +95,6 @@ public class RegistrationActivity extends AppCompatActivity {
                 showDialog(DIALOG_DATE);
             }
         });
-
         userSkill.setOnTouchListener(touchListener);
         setupSpinner(userSkill);
 
@@ -98,7 +102,7 @@ public class RegistrationActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (bdIsChosen) {
+                if (bdIsChosen && !oSkill.equals(getString(R.string.skill_0))) {
                     createUser(); //creating, check and adding
                     Intent intent = new Intent(RegistrationActivity.this, Main2Activity.class);
                     startActivity(intent);
@@ -108,7 +112,17 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     public User createUser() {
-        User user = new User(oName, oSurname, oEmail, oGender, oBirthday, oSkill);
+        oEmail = userEmail.getText().toString().trim();
+        oPassword = userPassword.getText().toString().trim();
+        oName = userName.getText().toString().trim();
+        oSurname = userSurname.getText().toString().trim();
+        if(userFemale.isSelected())
+            oGender = 1;
+        else oGender = 0;
+        oBirthday = userBirthday.getText().toString().trim();
+        oCity = userCity.getText().toString().trim();
+
+        User user = new User(oEmail, oPassword, oName, oSurname, oGender, oBirthday, oCity, oSkill);
         saveUser(user);
         return user;
     }
@@ -116,22 +130,17 @@ public class RegistrationActivity extends AppCompatActivity {
     public long saveUser(User user) {
         long userId;
 
-        oName = userName.getText().toString().trim();
-        oSurname = userSurname.getText().toString().trim();
-        oEmail = userEmail.getText().toString().trim();
-        oGender = userFemale.isSelected();
-
-        if (user.getSkill().equals(getString(R.string.skill_0)))
-            return -1;
-
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
+        values.put("email", user.getEmail());
+        values.put("password", user.getPassword());
         values.put("name", user.getName());
         values.put("surname", user.getSurname());
-        values.put("email", user.getEmail());
         values.put("gender", user.getGender());
         values.put("birthday", user.getBirthday());
         values.put("skill", user.getSkill());
+        values.put("city", user.getCity());
+        Log.i("chLogin", values.toString());
 
         userId = db.insert("users", null, values);
         return userId;
@@ -198,6 +207,5 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
     }
-
 
 }

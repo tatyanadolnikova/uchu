@@ -61,6 +61,22 @@
         android:hint="@string/registration_email"
         android:inputType="textEmailAddress" />
 
+    <EditText
+        android:id="@+id/registration_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        android:textSize="18sp"
+        android:lines="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/registration_email"
+        android:hint="@string/registration_password"
+        android:inputType="textPassword" />
+
     <RadioGroup
         android:id="@+id/registration_gender"
         android:layout_width="match_parent"
@@ -72,7 +88,7 @@
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/registration_email">
+        app:layout_constraintTop_toBottomOf="@id/registration_password">
 
         <TextView
             android:layout_width="wrap_content"
@@ -101,6 +117,22 @@
             android:layout_weight="1" />
     </RadioGroup>
 
+    <EditText
+        android:id="@+id/registration_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="12dp"
+        android:textSize="18sp"
+        android:lines="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/registration_gender"
+        android:hint="@string/registration_city"
+        android:inputType="textCapSentences"/>
+
     <Button
         android:id="@+id/registration_birthday"
         android:layout_width="wrap_content"
@@ -111,7 +143,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/registration_gender"
+        app:layout_constraintTop_toBottomOf="@id/registration_city"
         android:text="@string/registration_birthday"
         android:textSize="18sp"
         android:textAllCaps="false"
