@@ -107,18 +107,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="12dp"
-
-        android:text="@string/registration_birthday"
-        android:textSize="16sp"
+        android:layout_marginBottom="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/registration_gender" />
-
+        app:layout_constraintTop_toBottomOf="@id/registration_gender"
+        android:text="@string/registration_birthday"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        android:textStyle="normal"
+        android:enabled="true"/>
 
     <Spinner
         android:id="@+id/registration_spinner"
+        android:textSize="18sp"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
         android:layout_marginTop="12dp"

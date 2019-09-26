@@ -1,7 +1,5 @@
 package com.example.android.uchu;
 
-import java.util.Calendar;
-
 public class User {
     private String name;
     private String surname;

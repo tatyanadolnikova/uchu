@@ -35,6 +35,7 @@
     <string name="registration_skills">Умею</string>
     <string name="registration_save">Продолжить</string>
 
+    <string name="skill_0">Выбрать навык</string>
     <string name="skill_1">Английский</string>
     <string name="skill_2">Немецкий</string>
     <string name="skill_3">Французский</string>
