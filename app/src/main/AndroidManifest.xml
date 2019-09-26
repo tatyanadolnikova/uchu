@@ -12,7 +12,8 @@
         <activity
             android:name=".SavedContactsActivity"
             android:label="@string/title_activity_saved_contacts"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".CommunicationActivity"
             android:label="@string/title_activity_communication"
