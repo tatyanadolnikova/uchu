@@ -104,7 +104,7 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (bdIsChosen && !oSkill.equals(getString(R.string.skill_0))) {
                     createUser(); //creating, check and adding
-                    Intent intent = new Intent(RegistrationActivity.this, Main2Activity.class);
+                    Intent intent = new Intent(RegistrationActivity.this, MenuActivity.class);
                     startActivity(intent);
                 }
             }

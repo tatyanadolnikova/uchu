@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CommunicationActivity">
+    tools:context=".MenuActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -20,13 +20,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/menu_gallery"
-        android:layout_marginTop="60dp"
-        android:layout_marginStart="20dp"/>
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -35,6 +28,6 @@
         android:layout_margin="@dimen/fab_margin"
         app:srcCompat="@android:drawable/ic_dialog_email" />
 
-    <include layout="@layout/content_communication" />
+    <include layout="@layout/content_menu" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

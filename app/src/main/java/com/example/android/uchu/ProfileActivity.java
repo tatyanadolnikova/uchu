@@ -1,5 +1,6 @@
 package com.example.android.uchu;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -22,14 +23,14 @@ public class ProfileActivity extends AppCompatActivity {
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
         TextView textView = findViewById(R.id.profile_name);
-        textView.setText("Татьяна\nДольникова");
+        textView.setText("Алиса\nДольникова");
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(ProfileActivity.this, RegistrationActivity.class);
+                startActivity(intent);
             }
         });
     }
