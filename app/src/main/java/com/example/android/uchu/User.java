@@ -1,21 +1,23 @@
 package com.example.android.uchu;
 
+import java.util.ArrayList;
+
 public class User {
     private String email;
     private String password;
     private String name;
     private String surname;
-    private int gender; // true: ж; false: м
     private String birthday;
     private String city;
     private String skill;
+    private String info;
+    private ArrayList<Integer> savedContacts;
 
-    public User(String email, String password, String name, String surname, int gender, String birthday, String city, String skill) {
+    public User(String email, String password, String name, String surname, String birthday, String city, String skill) {
         this.email = email;
         this.password = password;
         this.name = name;
         this.surname = surname;
-        this.gender = gender;
         this.birthday = birthday;
         this.city = city;
         this.skill = skill;
@@ -37,10 +39,6 @@ public class User {
         return surname;
     }
 
-    public int getGender() {
-        return gender;
-    }
-
     public String getBirthday() {
         return birthday;
     }
@@ -51,5 +49,13 @@ public class User {
 
     public String getSkill() {
         return skill;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public ArrayList<Integer> getSavedContacts() {
+        return savedContacts;
     }
 }
