@@ -84,7 +84,7 @@ public class RegistrationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (bdIsChosen && !chosenSkill.equals(getString(R.string.skill_0))) {
                     saveUser();
-                    Intent intent = new Intent(RegistrationActivity.this, MenuActivity.class);
+                    Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
                     startActivity(intent);
                 }
             }

@@ -1,5 +1,10 @@
 <resources>
-    <string name="app_name">uchu</string>
+    <!-- Manifest -->
+    <string name="activity_main">UCHU</string>
+    <string name="activity_login">Вход</string>
+    <string name="activity_registration">Регистрация</string>
+    <string name="app_name">drawer</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -7,6 +12,12 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Exit -->
+    <string name="exit_question">Выйти?</string>
+    <string name="exit_yes">Да</string>
+    <string name="exit_no">Отмена</string>
+
+    <!-- MainActivity -->
     <string name="menu_home">Мой профиль</string>
     <string name="menu_gallery">Контакты</string>
     <string name="menu_slideshow">Поиск</string>
@@ -14,6 +25,9 @@
     <string name="menu_share">Настройки</string>
     <string name="menu_faq">FAQ</string>
     <string name="menu_send">Выйти</string>
+    <string name="menu_exit">Exit</string>
+
+    <!-- Sign In -->
     <string name="title_activity_login">Войти</string>
     <string name="prompt_email">email</string>
     <string name="prompt_password">password</string>
@@ -25,6 +39,7 @@
     <string name="login_failed">"Login failed"</string>
     <string name="title_registration_activity">Регистрация</string>
 
+    <!-- Registration -->
     <string name="registration_name">Имя</string>
     <string name="registration_surname">Фамилия</string>
     <string name="registration_email">Электронная почта</string>
@@ -37,6 +52,7 @@
     <string name="registration_skills">Умею</string>
     <string name="registration_save">Продолжить</string>
 
+    <!-- Skills -->
     <string name="skill_0">Выбрать навык</string>
     <string name="skill_1">Английский</string>
     <string name="skill_2">Немецкий</string>
@@ -74,8 +90,5 @@
     <string name="title_activity_communication">CommunicationActivity</string>
     <string name="title_activity_saved_contacts">SavedContactsActivity</string>
 
-    <string name="exit">Выйти?</string>
-    <string name="yes">Да</string>
-    <string name="no">Нет</string>
     <string name="title_activity_menu">MenuActivity</string>
 </resources>

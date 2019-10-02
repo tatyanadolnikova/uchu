@@ -1,0 +1,41 @@
+package com.example.android.uchu.ui.exit;
+
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
+
+import com.example.android.uchu.R;
+
+public class ExitFragment extends DialogFragment implements DialogInterface.OnClickListener {
+
+    public Dialog onCreateDialog(Bundle savedInstanceState) {
+        AlertDialog.Builder adb = new AlertDialog.Builder(getActivity())
+                .setTitle(R.string.exit_question).setPositiveButton(R.string.exit_yes, this)
+                .setNegativeButton(R.string.exit_no, this);
+        return adb.create();
+    }
+
+    public void onClick(DialogInterface dialog, int which) {
+        int i = 0;
+        switch (which) {
+            case Dialog.BUTTON_POSITIVE:
+                i = R.string.exit_yes;
+                break;
+            case Dialog.BUTTON_NEGATIVE:
+                i = R.string.exit_no;
+                break;
+        }
+    }
+
+    public void onDismiss(DialogInterface dialog) {
+        super.onDismiss(dialog);
+    }
+
+    public void onCancel(DialogInterface dialog) {
+        super.onCancel(dialog);
+    }
+
+}
