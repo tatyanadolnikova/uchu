@@ -1,21 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    android:scrollbarStyle="insideInset">
 
-    <TextView
-        android:id="@+id/text_home"
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/profile_birthday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:paddingTop="32dp"
+                android:paddingBottom="4dp"
+                android:text="@string/registration_birthday"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/profile_birthday_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/profile_birthday"
+                android:paddingStart="32dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="8dp"
+                android:paddingEnd="32dp"
+                android:text="30.07.1996"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/profile_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/registration_city"
+                android:textSize="16sp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/profile_birthday_data"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="4dp" />
+
+            <TextView
+                android:id="@+id/profile_city_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Москва"
+                android:textSize="20sp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/profile_city"
+                android:paddingStart="32dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="8dp"
+                android:paddingEnd="32dp" />
+
+            <TextView
+                android:id="@+id/profile_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/registration_email"
+                android:textSize="16sp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/profile_city_data"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="4dp" />
+
+            <TextView
+                android:id="@+id/profile_email_data"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="tatyanabulakhova@yandex.ru"
+                android:textSize="20sp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/profile_email"
+                android:paddingStart="32dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="8dp"
+                android:paddingEnd="32dp" />
+
+            <TextView
+                android:id="@+id/profile_skill"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/registration_skills"
+                android:textSize="16sp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/profile_email_data"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="4dp" />
+
+            <TextView
+                android:id="@+id/profile_skill_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Английский язык"
+                android:textSize="20sp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/profile_skill"
+                android:paddingStart="32dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="8dp"
+                android:paddingEnd="32dp" />
+
+            <TextView
+                android:id="@+id/profile_about"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="О себе"
+                android:textSize="16sp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/profile_skill_data"
+                android:paddingStart="32dp"
+                android:paddingEnd="32dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="4dp" />
+
+            <TextView
+                android:id="@+id/profile_about_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Люблю изучать иностранные языки, заниматься йогой и смотреть хоррор-фильмы! Люблю изучать иностранные языки, заниматься йогой и смотреть хоррор-фильмы! Люблю изучать иностранные языки, заниматься йогой и смотреть хоррор-фильмы!"
+                android:textSize="20sp"
+                android:layout_alignParentStart="true"
+                android:layout_below="@id/profile_about"
+                android:paddingStart="32dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="16dp"
+                android:paddingEnd="32dp" />
+        </RelativeLayout>
+    </ScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -24,6 +158,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        app:srcCompat="@android:drawable/ic_menu_edit" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -2,7 +2,6 @@ package com.example.android.uchu;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -35,9 +34,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toolbar = findViewById(R.id.toolbar);
-        Log.i("mytag", "40");
         setSupportActionBar(toolbar);
-        Log.i("mytag", "42");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         drawerLayout = findViewById(R.id.drawer_layout);
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -48,6 +45,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.nvView);
         navigationView.bringToFront();
         navigationView.setNavigationItemSelectedListener(this);
+
+        try {
+            Fragment startFragment = SearchFragment.class.newInstance();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.flContent, startFragment ).commit();
+        } catch (Exception e) {}
+
     }
 
     @Override
@@ -59,29 +63,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         Fragment fragment = null;
-        Class fragmentClass;
+        Class fragmentClass = null;
         switch(menuItem.getItemId()) {
             case R.id.nav_home:
                 fragmentClass = HomeFragment.class;
                 break;
-            case R.id.nav_gallery:
-                fragmentClass = SearchFragment.class;
-                break;
-            case R.id.nav_slideshow:
-                fragmentClass = SettingsFragment.class;
-                break;
-            case R.id.nav_tools:
-                fragmentClass = FaqFragment.class;
-                break;
-            case R.id.nav_share:
+            case R.id.nav_communication:
                 fragmentClass = MessagesFragment.class;
                 break;
-            case R.id.nav_send:
+            case R.id.nav_saved_contacts:
                 fragmentClass = ContactsFragment.class;
                 break;
-            case R.id.nav_exit:
-                fragmentClass = ExitFragment.class;
+            case R.id.nav_settings:
+                fragmentClass = SettingsFragment.class;
                 break;
+            case R.id.nav_faq:
+                fragmentClass = FaqFragment.class;
+                break;
+            case R.id.nav_exit:
+                drawerLayout.closeDrawers();
+                ExitFragment exitFragment = new ExitFragment();
+                exitFragment.show(getSupportFragmentManager(), "exitFragment tag");
+                return false;
             default:
                 fragmentClass = HomeFragment.class;
         }

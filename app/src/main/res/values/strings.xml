@@ -19,13 +19,17 @@
 
     <!-- MainActivity -->
     <string name="menu_home">Мой профиль</string>
-    <string name="menu_gallery">Контакты</string>
-    <string name="menu_slideshow">Поиск</string>
-    <string name="menu_tools">Сохранено</string>
-    <string name="menu_share">Настройки</string>
+    <string name="menu_communication">Общение</string>
+    <string name="menu_saved_contacts">Сохраненные контакты</string>
+    <string name="menu_settings">Настройки</string>
     <string name="menu_faq">FAQ</string>
+    <string name="menu_exit">Выйти</string>
+
     <string name="menu_send">Выйти</string>
-    <string name="menu_exit">Exit</string>
+    <string name="menu_search">Поиск</string>
+
+    <string name="main_skill">Я умею</string>
+    <string name="main_wish">Я хочу</string>
 
     <!-- Sign In -->
     <string name="title_activity_login">Войти</string>
@@ -91,4 +95,19 @@
     <string name="title_activity_saved_contacts">SavedContactsActivity</string>
 
     <string name="title_activity_menu">MenuActivity</string>
+
+    <!-- FAQ -->
+    <string name="faq_email">tatyanabulakhova@yandex.ru</string>
+    <string name="faq_1">Что такое UCHU?</string>
+    <string name="faq_1_answer">Это платформа, которая позволяет познакомиться с людьми, обладающих какими-то знаниями.UCHU можно использовать для интеллектуального обмена: например, Вы на высоком уровне умеете
+        говорить на французском языке и хотите научиться печь пирожные. На платформе Вы сможете найти именно того, кто вам нужен — пекарь, мечтающий говорить по-французски! Так что вперед!
+    </string>
+    <string name="faq_2">Не могу найти человека, который знает то, что мне интересно.</string>
+    <string name="faq_2_answer">В таком случае заходи на главную страницу и подписывайся на рассылку. Как только на платформе появится тот, кто Вам нужен, мы пришлем на электронную почту уведомление.</string>
+    <string name="faq_3">В UCHU нет необходимого мне навыка.</string>
+    <string name="faq_3_answer">Наша база навыков растет благодаря Вам. Напишите нам \"Я хочу [что-то уметь]\" или \"Я умею [что-то делать]\".</string>
+    <string name="faq_4">Это бесплатно?</string>
+    <string name="faq_4_answer">Да.</string>
+    <string name="faq_5">У меня остались вопросы.</string>
+    <string name="faq_5_answer">Нажимайте на кнопу "Связаться" и эксперты UCHU оперативно с Вами свяжутся.</string>
 </resources>

@@ -5,15 +5,114 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/text_search"
-        android:layout_width="match_parent"
+        android:id="@+id/skill"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:text="@string/main_skill"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif"
+        android:textColor="#A2AAB0"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/personal_skill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        app:layout_constraintTop_toBottomOf="@id/skill"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="ТАНЦЕВАТЬ"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:background="@color/colorPrimary"/>
+
+    <TextView
+        android:id="@+id/wish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/personal_skill"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/main_wish"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif"
+        android:textColor="#A2AAB0"/>
+
+    <TextView
+        android:id="@+id/personal_wish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/wish"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        android:text="ПЕЧЬ ПИРОГИ"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:background="@color/colorPrimary"/>
+
+    <View
+        android:id="@+id/separator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/personal_wish"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="32dp"
+        android:background="@android:color/darker_gray"/>
+
+    <RelativeLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CatalogActivity"
+        app:layout_constraintTop_toBottomOf="@id/separator"
+        android:layout_marginTop="0dp">
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <RelativeLayout
+            android:id="@+id/empty_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <TextView
+                android:id="@+id/empty_title_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif-medium"
+                android:text="начни знакомиться прямо сейчас"
+                android:textAppearance="?android:textAppearanceMedium"/>
+
+            <TextView
+                android:id="@+id/empty_subtitle_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/empty_title_text"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="sans-serif"
+                android:paddingTop="8dp"
+                android:text="~uchu~"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="#A2AAB0"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

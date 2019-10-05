@@ -2,12 +2,14 @@ package com.example.android.uchu.ui.exit;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.android.uchu.R;
+import com.example.android.uchu.ui.ui.login.LoginActivity;
 
 public class ExitFragment extends DialogFragment implements DialogInterface.OnClickListener {
 
@@ -19,13 +21,13 @@ public class ExitFragment extends DialogFragment implements DialogInterface.OnCl
     }
 
     public void onClick(DialogInterface dialog, int which) {
-        int i = 0;
         switch (which) {
             case Dialog.BUTTON_POSITIVE:
-                i = R.string.exit_yes;
+                Intent intent = new Intent(getActivity(), LoginActivity.class);
+                startActivity(intent);
                 break;
             case Dialog.BUTTON_NEGATIVE:
-                i = R.string.exit_no;
+                dialog.cancel();
                 break;
         }
     }
