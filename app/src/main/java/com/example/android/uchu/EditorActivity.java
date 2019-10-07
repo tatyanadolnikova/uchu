@@ -4,6 +4,15 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+
+import com.example.android.uchu.ui.database.DatabaseHandler;
+import com.example.android.uchu.ui.home.HomeFragment;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -15,13 +24,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import com.example.android.uchu.ui.database.DatabaseHandler;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-public class RegistrationActivity extends AppCompatActivity {
+public class EditorActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private EditText userName;
@@ -31,6 +34,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private Button userBirthday;
     private EditText userCity;
     private Spinner userSkill;
+    private EditText userInfo;
     private FloatingActionButton addUserButton;
 
     private String chosenSkill;
@@ -42,6 +46,8 @@ public class RegistrationActivity extends AppCompatActivity {
     private int month = 01;
     private int day = 01;
 
+    DatabaseHandler dbHandler;
+
     private View.OnTouchListener touchListener = new View.OnTouchListener() {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -52,22 +58,23 @@ public class RegistrationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registration);
+        setContentView(R.layout.activity_editor);
         findAllViews();
         setOnClickListeners();
     }
 
     public void findAllViews() {
-        toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.edit_toolbar);
         setSupportActionBar(toolbar);
-        userName = findViewById(R.id.registration_name);
-        userSurname = findViewById(R.id.registration_surname);
-        userEmail = findViewById(R.id.registration_email);
-        userPassword = findViewById(R.id.registration_password);
-        userBirthday = findViewById(R.id.registration_birthday);
-        userCity = findViewById(R.id.registration_city);
-        userSkill = findViewById(R.id.registration_spinner);
-        addUserButton = findViewById(R.id.fab);
+        userName = findViewById(R.id.edit_name);
+        userSurname = findViewById(R.id.edit_surname);
+        userEmail = findViewById(R.id.edit_email);
+        userPassword = findViewById(R.id.edit_password);
+        userBirthday = findViewById(R.id.edit_birthday);
+        userCity = findViewById(R.id.edit_city);
+        userSkill = findViewById(R.id.edit_spinner);
+        userInfo = findViewById(R.id.edit_info);
+        addUserButton = findViewById(R.id.edit_fab);
     }
 
     public void setOnClickListeners() {
@@ -85,7 +92,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 if (bdIsChosen && !chosenSkill.equals(getString(R.string.skill_0))) {
                     saveUser();
                     Log.i("my_log", "id = " + DatabaseHandler.USER_ID);
-                    Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+                    Intent intent = new Intent(EditorActivity.this, HomeFragment.class);
                     startActivity(intent);
                 }
             }
@@ -100,8 +107,8 @@ public class RegistrationActivity extends AppCompatActivity {
                 chosenBirthday,
                 userCity.getText().toString().trim(),
                 chosenSkill);
-        DatabaseHandler dbHandler = new DatabaseHandler(this);
-        dbHandler.addUser(user);
+        user.setInfo(userInfo.getText().toString().trim());
+        dbHandler.updateUser(user);
     }
 
     protected Dialog onCreateDialog(int id) {

@@ -5,20 +5,15 @@ import android.util.Log;
 
 import com.example.android.uchu.User;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.nio.charset.StandardCharsets;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 public class DataHelper extends AsyncTask<Void, Void, Void> {
 
-    private String resultString;
-    private String server = "uchu.ru";
     private User user;
+    private Connection connection;
 
     public DataHelper(User user) {
         this.user = user;
@@ -31,65 +26,22 @@ public class DataHelper extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... params) {
+        //"jdbc:postgresql://hostname:port/dbname"
+        String url = "jdbc:postgresql://kvm3.79831382332.10371.vps.myjino.ru:49295/uchu";
         try {
-            String myURL = "https://" + server + "/server.php";
-            String parameters = "email=" + user.getEmail()
-                    + "&password=" + user.getPassword()
-                    + "&name=" + user.getName()
-                    + "&surname=" + user.getSurname()
-                    + "$birthday=" + user.getBirthday()
-                    + "&city=" + user.getCity()
-                    + "&skill=" + user.getSkill();
-            try {
-                URL url = new URL(myURL);
-                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                connection.setReadTimeout(10000);
-                connection.setConnectTimeout(15000);
-                connection.setRequestMethod("POST");
-                connection.setRequestProperty("Connection", "Keep-Alive");
-                connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                connection.setRequestProperty("Content-Length", "" + parameters.getBytes().length);
-                connection.setDoOutput(true);
-                connection.setDoInput(true);
-
-                // конвертируем передаваемую строку в UTF-8
-                byte[] data = parameters.getBytes(StandardCharsets.UTF_8);
-                OutputStream os = connection.getOutputStream();
-                os.write(data);
-                os.flush();
-                os.close();
-                connection.connect();
-                int responseCode = connection.getResponseCode();
-
-                // передаем ответ на сервер
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
-                if (responseCode == 200) {    // Если все ОК (ответ 200)
-                    InputStream is = connection.getInputStream();
-                    byte[] buffer = new byte[8192]; // размер буфера
-
-                    // Далее так читаем ответ
-                    int bytesRead;
-                    while ((bytesRead = is.read(buffer)) != -1) {
-                        baos.write(buffer, 0, bytesRead);
-                    }
-                    data = baos.toByteArray();
-                    resultString = new String(data, StandardCharsets.UTF_8);  // сохраняем в переменную ответ сервера, у нас "OK"
-                }
-                connection.disconnect();
-
-            } catch (MalformedURLException e) {
-                resultString = "MalformedURLException:" + e.getMessage();
-                Log.w("info", resultString);
-            } catch (IOException e) {
-                resultString = "IOException:" + e.getMessage();
-                Log.w("info", resultString);
-            } catch (Exception e) {
-                resultString = "Exception:" + e.getMessage();
-                Log.w("info", resultString);
+            Class.forName("org.postgresql.Driver");
+            Log.i("myinfo", "Class.forName");
+            connection = DriverManager.getConnection(url,"tdolnikova", "12129595Vv");
+            if (connection != null) {
+                Log.i("myinfo", "Connected to the database!");
+            } else {
+                Log.i("myinfo", "Failed to make connection!");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            connection.close();
+        } catch (SQLException e) {
+            Log.i("myinfo", String.format("SQL State: %s\nSQL Message: %s\nSQL Error: %s", e.getSQLState(), e.getMessage(), e.getErrorCode()));
+        } catch (ClassNotFoundException e) {
+            Log.i("myinfo", String.format("Class not found message: %s", e.getMessage()));
         }
         return null;
     }
@@ -98,6 +50,30 @@ public class DataHelper extends AsyncTask<Void, Void, Void> {
     @Override
     protected void onPostExecute(Void result) {
         super.onPostExecute(result);
-        Log.i("info", "Создан новый пользователь.");
+        //Log.i("myinfo", "Создан новый пользователь.");
+    }
+
+    private void addUserToDB(User user) {
+        String insertTableSQL = "INSERT INTO USERS"
+                + "(email, password, name, surname, birthday, city) "
+                + "VALUES('"
+                + user.getEmail() + "', "
+                + user.getPassword() + "', '"
+                + user.getName() + "', '"
+                + user.getSurname() + "', '"
+                + user.getBirthday() + "', '"
+                + user.getCity() + "')";
+        //insert into users ("email", "password", "name", "surname", "birthday", "city")
+        //values ('a@mail.ru', '123', 'Юлия', 'Червоткина', '1995-03-05', 'Томск')
+
+        Log.i("myinfo", insertTableSQL);
+
+        try {
+            Statement statement = connection.createStatement();
+            Log.i("myinfo", "Statement created");
+            statement.executeUpdate(insertTableSQL);
+            Log.i("myinfo", "Update executed");
+        } catch (SQLException e) {
+        }
     }
 }

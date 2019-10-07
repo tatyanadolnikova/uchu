@@ -55,6 +55,7 @@
     <string name="registration_city">Город</string>
     <string name="registration_skills">Умею</string>
     <string name="registration_save">Продолжить</string>
+    <string name="registration_info">Расскажите о себе</string>
 
     <!-- Skills -->
     <string name="skill_0">Выбрать навык</string>
@@ -110,4 +111,10 @@
     <string name="faq_4_answer">Да.</string>
     <string name="faq_5">У меня остались вопросы.</string>
     <string name="faq_5_answer">Нажимайте на кнопу "Связаться" и эксперты UCHU оперативно с Вами свяжутся.</string>
+
+    <!-- SQL -->
+    <string name="sql"></string>
+    <string name="title_activity_editor">EditorActivity</string>
+
+
 </resources>

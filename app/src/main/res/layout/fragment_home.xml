@@ -3,7 +3,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:scrollbarStyle="insideInset">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -42,7 +42,6 @@
                 android:paddingTop="4dp"
                 android:paddingBottom="8dp"
                 android:paddingEnd="32dp"
-                android:text="30.07.1996"
                 android:textSize="20sp"/>
 
             <TextView
@@ -62,7 +61,6 @@
                 android:id="@+id/profile_city_data"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Москва"
                 android:textSize="20sp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@id/profile_city"
@@ -88,7 +86,6 @@
                 android:id="@+id/profile_email_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="tatyanabulakhova@yandex.ru"
                 android:textSize="20sp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@id/profile_email"
@@ -114,7 +111,7 @@
                 android:id="@+id/profile_skill_data"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Английский язык"
+
                 android:textSize="20sp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@id/profile_skill"
@@ -140,7 +137,6 @@
                 android:id="@+id/profile_about_data"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Люблю изучать иностранные языки, заниматься йогой и смотреть хоррор-фильмы! Люблю изучать иностранные языки, заниматься йогой и смотреть хоррор-фильмы! Люблю изучать иностранные языки, заниматься йогой и смотреть хоррор-фильмы!"
                 android:textSize="20sp"
                 android:layout_alignParentStart="true"
                 android:layout_below="@id/profile_about"
